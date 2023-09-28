@@ -1,0 +1,159 @@
+body{
+    font-family: sans-serif;
+/* arriba 90px izq y dere 20px y 0px abajo  */
+    padding: 90px 20px 0px;
+    /* esto es para que el body empiece debajo de  */
+    /* la barra de navegacion */
+    padding-top: 60px;
+}
+
+.header{
+    background-color: #0769e9;
+    height: 80px;
+    /* si hacemos scroll que la barra se quede fija en la parte superior  */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+
+    /* //centrando el contenido para pantallas muy anchas */
+    /* ancho maximo de 992px, sacamos el dato de https://getbootstrap.com/docs/5.0/layout/breakpoints/    "breakpoints" "Large" */
+    max-width: 992px;
+    /* Y para que quede centrado le damos un margin de 0 arriba y abajo y izq y derecha auto  */
+    margin: 0 auto;
+
+}
+.nav-link{
+    color: white;
+    text-decoration: none;
+}
+.logo{
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0 40px;
+    /* mi header mide 80px */
+    /* con esta "line-height" centramos (logo) respecto a la medida obrtenida del header */
+    line-height: 80px;
+}
+
+/* Estilo a la barra de navegacion  */
+.nav-menu{
+
+    display: flex;
+    margin-right: 40px;
+    list-style: none;
+
+}
+
+/* Estilo a los elementos de la <li> lista  */
+.nav-menu-item{
+
+    font-size: 18px;
+    margin: 0 10px;
+    line-height: 50px;
+    text-transform: uppercase;
+
+}
+
+
+.nav-menu-link:hover{
+    background-color: #034574;
+    transition: 0.5s;
+}
+.nav-toggle{
+    color: white;
+    background: none;
+    border: none;
+    border-radius: 20px;
+    font-size: 30px;
+    padding: 0 20px;
+    line-height: 60px;
+    cursor: pointer;
+
+    /* displey: none para que el boton no se vea en formato escritorio */
+    display: none;
+}
+
+
+@media (max-width: 768px) {
+    body{
+        padding-top: 50px;
+    }
+    .header{
+        background-color: #0769e9;
+        height: 60px;
+
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    .logo{
+        font-size: 25px;
+        font-weight: bold;
+        padding: 0 40px;
+        line-height: 60px;
+    }
+
+    .nav-menu{
+
+        /* queremos que el menu se ve en COLUMNA, con un fondo, posision fixed y acomodarlo debajo del header y centrar los elementos */
+
+        /* display: flex; */
+    /* paso 1--  eliminamos el desplay: flex;
+     que se mantiene del original y agregamos "flex-directon: column */
+    /* para que nuestros elementos se vean en columna  */
+        flex-direction: column;
+        align-items: center;
+        margin-right: 20px;
+        list-style: none;
+        background-color: #2c3e50;
+        position: fixed;
+        left: 0;
+        top: 44px;
+        width: 100%;
+        /* damos un paddign por que le navegador automaticamente le da un pading a la <ul> */
+        padding: 20px 0;
+
+
+
+
+        /* permitir Scroll cuando el tamaño de mi pagina es super pequeño */
+
+
+        /* qu ehagarre todo el tamaño de la pagina hacemos un calculo hagarre el 100% - lo que tenbemos de espacio del log */
+        height: calc(33.3% - 60px);
+        /* cuando nececitemos el scroll el la añade automaticamnet */
+        overflow-y: auto;
+
+        /* ponemos todo el menu 100% fuera de la pantalla para activar que salga con el boton mas adelante con otra clase en lef 0 regresandolo a la vista */
+        left: 100%;
+        transition: left  0.5s;
+
+    }
+
+    /* Estilo a los elementos de la <li> lista  */
+    .nav-menu-item{
+        line-height: 70px;
+    }
+
+    .nav-menu-link:hover{
+        background: none;
+        color: #83c5f7;
+    }
+
+    .nav-toggle{
+        display: flex;
+    }
+
+    .nav-menu_visible{
+        /* ponemos y mostramos el menu hasta la izquierda desde el  pixel 0  */
+        left: 0;
+    }
+
+  }
