@@ -157,3 +157,14 @@ body{
     }
 
   }
+
+  .eins-modal-button{
+    padding: 50px;
+    position: relative;
+    top: 40px;
+
+  }
+  .eins-modal-button:hover{
+    cursor: pointer;
+
+  }
